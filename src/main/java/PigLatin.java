@@ -45,22 +45,27 @@ public String pigLatin(String sWord)
   //postcondition: returns the pig latin equivalent of sWord
 {
   if (sWord.length()>0) {
-    if (findFirstVowel(sWord) == 0)
+    if (findFirstVowel(sWord) == 0)//vowell is first letter
     {
       return sWord + "way";
     }
-    if (findFirstVowel(sWord) == -1)
+    if (findFirstVowel(sWord) == -1)//word has no vowell
     {
       return sWord + "ay";
     }
-    if (sWord.substring(0, 2).equals("qu"))
+    if (sWord.substring(0, 2).equals("qu"))//specific words like question
     {
       return sWord.substring(2, sWord.length())+sWord.substring(0, 2)+"ay";
-    }  
+    }
+
     if (findFirstVowel(sWord) != -1 && sWord.substring(0, 1)!="a"||sWord.substring(0, 1)!="e"||sWord.substring(0, 1)!="i"||sWord.substring(0, 1)!="o"||sWord.substring(0, 1)!="u")    
-    {
-      return sWord.substring(1, sWord.length())+sWord.substring(0, 1)+"ay";
+    {//words with vowell and consonants like ball
+      return sWord.substring(findFirstVowel(sWord), sWord.length())+sWord.substring(0, findFirstVowel(sWord))+"ay";
     }
   }
+  
+  return "ERROR!";
+}
+
   return "ERROR!";
 }
