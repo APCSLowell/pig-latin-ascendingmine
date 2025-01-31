@@ -61,3 +61,4 @@ public String pigLatin(String sWord)
   }
   return "ERROR!";
 }
+}
